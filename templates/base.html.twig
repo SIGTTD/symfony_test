@@ -4,9 +4,22 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
     </head>
-    <body>
+    <body class="m-2">
+        <div class="m-5">
+            <form class="form-inline my-2 my-lg-0" action="{{ path('post_search') }}" method="get">
+                <input class="form-control mr-sm-2" type="search" aria-label="Search" name="q" placeholder="type something">
+                <button class="btn btn-default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <a href="{{ path('posts') }}">Posts</a>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+        <script src="{{ asset('build/js/app.js') }}"></script>
     </body>
 </html>
